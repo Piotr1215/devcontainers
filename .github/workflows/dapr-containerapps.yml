@@ -35,7 +35,7 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: ./dapr-containerapps
+          context: /dapr-containerapps/
           push: true
           tags: piotrzan/devcontainer:dapr-containerapps
       - name: Image digest
