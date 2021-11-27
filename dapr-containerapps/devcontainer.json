@@ -1,0 +1,29 @@
+{
+  "name": "Ubuntu",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": { "VARIANT": "dapr-containerapps" }
+  },
+
+  "settings": {},
+  "containerEnv": {
+    "BIND_LOCALHOST_DOCKER": "true"
+  },
+
+  "runArgs": ["--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"],
+
+  "extensions": [
+    "ms-azuretools.vscode-bicep",
+    "ms-azuretools.vscode-dapr",
+    "ms-azuretools.vscode-docker"
+  ],
+  "mounts": [
+    "type=volume,source=dind-var-lib-docker,target=/var/lib/docker",
+    "type=bind,source=/var/run/docker.sock,target=/var/run/docker-host.sock"
+  ],
+
+  "remoteUser": "vscode",
+  "features": {
+    "azure-cli": "latest"
+  }
+}
