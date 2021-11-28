@@ -38,23 +38,9 @@ RUN echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
 USER $USERNAME
 
 # [Optional] Uncomment this section to install additional OS packages.
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends \
-        wget \
-        ca-certificates \
-        \
-        # Install Microsoft package feed
-        && wget -q https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
-        && dpkg -i packages-microsoft-prod.deb \
-        && rm packages-microsoft-prod.deb \
-        \
-        # Install .NET
-        && apt-get update \
-        && apt-get install -y --no-install-recommends \
-        dotnet-runtime-6.0 \
-        \
-        # Cleanup
-        && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+#     && apt-get -y install --no-install-recommends \
+
 
 # Setting the ENTRYPOINT to docker-init.sh will configure non-root access
 # to the Docker socket. The script will also execute CMD as needed.
