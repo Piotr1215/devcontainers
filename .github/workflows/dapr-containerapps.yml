@@ -35,7 +35,10 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_PW }}
       - uses: meeDamian/sync-readme@v1.0.6
         with:
+          user: piotrzan
           pass: ${{ secrets.DOCKER_HUB_PW }}
+          slug: piotrzan/devcontainer:dapr-containerapps
+          readme: README.md
           description: true
       - name: Build and push
         id: docker_build
