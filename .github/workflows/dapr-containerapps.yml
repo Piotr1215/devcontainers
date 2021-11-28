@@ -33,6 +33,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PW }}
+      - uses: meeDamian/sync-readme@v1.0.6
+        with:
+          pass: ${{ secrets.DOCKER_HUB_PW }}
+          description: true
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
