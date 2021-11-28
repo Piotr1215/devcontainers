@@ -37,7 +37,7 @@ jobs:
         with:
           user: piotrzan
           pass: ${{ secrets.DOCKER_HUB_PW }}
-          slug: piotrzan/devcontainer:dapr-containerapps
+          slug: piotrzan/devcontainer
           readme: README.md
           description: true
       - name: Build and push
